@@ -1,11 +1,11 @@
-<%= form_for [@post, @location] do |f| %>
+<%= form_for [@post, @places] do |f| %>
 <%= f.label :title %>
 <%= f.text_field :title %>
 <%= f.label :description %>
 <%= f.text_area :description %>
-<p>Enter address<%= f.fields_for :location do |location| %></p>
-  <%= location.text_field :address %>
-  <% end %>
+<%= f.label :address %>
+<%= f.text_field :address %>
+
 <%= f.file_field :image %>
 <%= f.submit %>
 <% end %>

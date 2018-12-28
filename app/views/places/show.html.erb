@@ -1,0 +1,11 @@
+
+
+
+
+<h1>Location</h1>
+    <%   Geokit::Geocoders::GoogleGeocoder.api_key = Rails.application.credentials.google_maps_api_key %>
+  <% georesult = Geokit::Geocoders::GoogleGeocoder.geocode @place.address%>
+
+  <div id="map-canvas" style="width: 400px; height: 400px">
+  <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{georesult.longitude}&#{georesult.latitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
+  </div>

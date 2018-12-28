@@ -9,8 +9,7 @@ class CreateAnimals < ActiveRecord::Migration[5.2]
       t.string :family
       t.string :genus
       t.string :species
-      t.boolean :native
-      t.boolean :endangered
+      
 
     end
   end

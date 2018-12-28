@@ -1,0 +1,6 @@
+<h1>User profile</h1>
+
+<h3><%= @user.username %></h3><br>
+
+<%= image_tag url_for(@user.avatar) %>
+<%= link_to @user.avatar.filename, rails_blob_path(@user.avatar, disposition: "attachment") %>

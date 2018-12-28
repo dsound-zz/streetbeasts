@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :users
   resources :animals
   resources :posts
-  resources :locations 
+  resources :places
+  get 'home' => "home#index"
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+
+
 end
 
 

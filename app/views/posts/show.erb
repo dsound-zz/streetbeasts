@@ -4,5 +4,8 @@
 <%= link_to @post.image.filename, rails_blob_path(@post.image, disposition: "attachment") %>
 <iframe width="300" height="300" frameborder="0" style="border:0"
 
-<%= image_tag google_map(center: @location.address) %>
+<%= image_tag google_map(center: @places.last.address)%>
+
 </iframe>
+
+<!-- https://maps.googleapis.com/maps/api/staticmap?center=185+hall+st,brooklyn,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyDacSiQGPumoBn1Ddp7otBDNWJnr8FgMCM -->

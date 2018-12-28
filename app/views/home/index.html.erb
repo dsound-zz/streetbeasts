@@ -1,0 +1,6 @@
+
+<h1>Welcome!</h1></br>
+
+<% @animals.each do |animal| %>
+  <p><%= link_to animal.name, animal_path(animal) %></p>
+  <% end %></br>

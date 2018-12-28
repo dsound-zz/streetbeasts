@@ -1,9 +1,30 @@
-<%= link_to @user do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<h1>Sign up</h1>
+
+<%= form_for @user do |f| %>
+
+<div>
+
 <%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :borough %>
-<%= f.text_field :borough %>
-<%= f.password_field :password %>
-<%= f.password_field :confirm_password %>
+<%= f.text_field :username, autofocus: true %>
+</div>
+<div>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+<div class="">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+<div class="">
+  <%= f.label :confirm_password %>
+  <%= f.password_field :confirm_password %>
+</div>
+<div class="">
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+
+</div>
+<div class="">
+  <%= f.submit "Sign Up!" %>
+</div>
+<% end %>

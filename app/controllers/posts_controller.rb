@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.with_attached_image
+    @posts = Post.all
   end
 
   def show
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    byebug
+
 
     @post = Post.new(post_params)
     @post.save
