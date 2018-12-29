@@ -2,5 +2,5 @@
 
 <h3><%= @user.username %></h3><br>
 
-<%= image_tag url_for(@user.avatar) %>
+<%= image_tag url_for(@user.avatar.variant(resize: "100x100")) %>
 <%= link_to @user.avatar.filename, rails_blob_path(@user.avatar, disposition: "attachment") %>
