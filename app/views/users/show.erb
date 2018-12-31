@@ -1,9 +1,12 @@
 
 <h3><%= @user.username %>'s profile</h3><br>
-<div class="">
-  <%= button_to "Edit profile", edit_user_path, method: "get" %>
-</div></br>
+
 <% if @user.avatar.attached?%>
-<%= image_tag url_for(@user.avatar) %>
-<%= link_to @user.avatar.filename, rails_blob_path(@user.avatar, disposition: "attachment") %>
+<%= image_tag current_user.avatar %>
 <% end %>
+
+<h3>My posts</h3>
+
+<% @user.posts.all do |post| %>
+  <%= post.images.attached %>
+  <% end %>

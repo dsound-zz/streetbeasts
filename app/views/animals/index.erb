@@ -2,6 +2,5 @@
 
 <% @animals.each do |animal| %>
 <p>  <%= link_to animal.name, animal_path(animal) %></p>
-<!-- <p>  <%= link_to animal.image.filename, rails_blob_path(animal.image, disposition: "attachment") %></p> -->
 <p>  <%= image_tag url_for(animal.image) %></P>
 <% end %>

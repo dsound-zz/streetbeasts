@@ -1,20 +1,25 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+
+  before_action :find_post, only: [:show, :edit, :like, :update, :destroy]
+  before_action if: ->{ session[:user] } do
+    @user = User.find_by(id: session[:user])
+  end
 
   def index
     @posts = Post.all
-
-
   end
 
 
+
+
   def show
+    @user = User.find(params[:id])
   end
 
 
   def new
     if current_user
-    @post = Post.new
+      @post = Post.new
     else
       redirect_to login_path, notice: 'Please login'
     end
@@ -28,11 +33,14 @@ class PostsController < ApplicationController
   end
 
 
-
-
-
-
   def edit
+  end
+
+  def like
+
+
+    @post.update(likes: @post.likes.to_i + 1)
+    render :show
   end
 
 
@@ -59,7 +67,9 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :likes)
   end
+
+
 
 end

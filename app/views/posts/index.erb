@@ -6,10 +6,5 @@
 <% @posts.each do |post| %>
 
 <p>Post title:  <%= link_to post.title, post_path(post) %> </p>
-<% if current_user %>
-<%= button_to "edit post", edit_post_path(post), method: "get" %><br>
-<%= button_to "delete post", post_path(post), method: "delete",
-      data: { confirm: "Are you sure?" }%>
-  <% end %>
 
 <% end %>

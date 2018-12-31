@@ -2,6 +2,8 @@
 
 <p>Title: <%= @post.title %><br>
 <p>Comment: <%= @post.description %><br>
+<p>Likes: <%= @post.likes %></p>
+<%= button_to 'like', like_path(@post), method: "patch" %>
 
   <% if @post.image.attached? %>
     <%= image_tag @post.image  %>
@@ -9,6 +11,14 @@
   <% else %>
 <p>  <%= flash[:notice] = "No image yet" %> </p>
 <% end %>
-<%= button_to "edit post", edit_post_path(@post), method: "get" %><br>
-<%= button_to "delete post", post_path(@post), method: "delete",
+
+
+
+
+
+  <%= button_to "edit post", edit_post_path(@post), method: "get" %><br>
+  <%= button_to "delete post", post_path(@post), method: "delete",
       data: { confirm: "Are you sure?" }%>
+
+<%= render partial: "comments/comments", locals: {commentable: @post} %>
+<%= render partial: "comments/form", locals: {commentable: @post} %>

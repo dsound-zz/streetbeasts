@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_31_015041) do
+ActiveRecord::Schema.define(version: 2018_12_31_191958) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,11 +44,23 @@ ActiveRecord::Schema.define(version: 2018_12_31_015041) do
     t.string "species"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes"
+    t.integer "user_id"
+    t.integer "animal_id"
   end
 
   create_table "users", force: :cascade do |t|
