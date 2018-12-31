@@ -3,35 +3,54 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+
+
   end
+
 
   def show
-    @post = Post.find(params[:id])
   end
+
 
   def new
+    if current_user
     @post = Post.new
+    else
+      redirect_to login_path, notice: 'Please login'
+    end
   end
 
+
   def create
-    @post = Post.new(post_params)
-    @post.save
+    @post = Post.create(post_params)
+    @post.image.attach(params[:post][:image])
     redirect_to post_path(@post)
   end
+
+
+
+
+
 
   def edit
   end
 
+
+
   def update
+    @post.image.purge
     @post.update(post_params)
+    @post.image.attach(params[:post][:image])
     redirect_to post_path(@post)
   end
 
   def destroy
-    @post.delete(post_params)
+
+    # @image = ActiveStorage::Blob.find_signed(params[:id])
+    @post.image.purge
+    @post.delete
     redirect_to posts_path
   end
-
 
   private
 
@@ -40,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :address, :image)
+    params.require(:post).permit(:title, :description)
   end
 
 end

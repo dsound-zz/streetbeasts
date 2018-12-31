@@ -1,0 +1,24 @@
+<h1>Login</h1>
+
+<%= form_tag '/login' do %>
+
+<br>
+<div class="form-group">
+  <strong>Email: </strong>
+  <%= text_field_tag :email %>
+  <br>
+</div>
+
+<div class="form-group">
+  <strong>Password: </strong>
+  <%= password_field_tag :password %>
+  <br>
+</div>
+
+<%= submit_tag "Login" %>
+
+<% end %>
+
+<h3>Need an account?</h3>
+
+<%= link_to 'Sign up', '/signup' %>

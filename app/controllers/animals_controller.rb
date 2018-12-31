@@ -4,6 +4,7 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+
   end
 
   def show
@@ -31,7 +32,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal.delete(animal_params)
     redirect_to animals_path
-  end 
+  end
 
 
 

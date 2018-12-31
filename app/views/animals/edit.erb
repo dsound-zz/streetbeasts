@@ -1,3 +1,5 @@
+<h1>Edit <%= @animal.name %></h1>
+
 <div>
 <ul>
 <li><%= form_for @animal do |f| %>
@@ -20,6 +22,7 @@
 <li><%= f.file_field :image %> </li>
 
 <li> <%= f.submit %></li>
+<%= button_to "Return to animal", animal_path(@animal), method: "get" %>
 </ul>
 
 

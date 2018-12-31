@@ -13,9 +13,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
   def create
     @user = User.new(user_params)
+
     @user.email.downcase!
+
     if @user.save
       flash[:notice] = "Account created successfully!"
       redirect_to user_path(@user)
@@ -24,7 +27,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
-end
+
 
   def edit
 
@@ -36,9 +39,9 @@ end
   end
 
   def destroy
-    @user.delete(user_params)
-    redirect_to users_path
-  end 
+    @user.delete
+    redirect_to posts_path
+  end
 
 
   private
@@ -50,3 +53,5 @@ end
   def user_params
     params.require(:user).permit(:name, :email, :username, :password, :password_confirmation, :avatar)
   end
+
+end

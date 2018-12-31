@@ -1,16 +1,25 @@
 Rails.application.routes.draw do
 
 
-  resources :users
-  resources :animals
-  resources :posts
-  resources :places
-  get 'home' => "home#index"
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :animals
+  resources :posts
+  
 
 end
+
+
+
+
+
+
 
 
 

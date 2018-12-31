@@ -1,9 +1,14 @@
-<%= @post.title %><br>
-<%= @post.description %>
-<%= image_tag url_for(@post.image) %>
-<%= link_to @post.image.filename, rails_blob_path(@post.image, disposition: "attachment") %>
-<iframe width="300" height="300" frameborder="0" style="border:0"
+<h1>Post</h1>
 
-<%= image_tag google_map(center: @places.last.address)%>
+<p>Title: <%= @post.title %><br>
+<p>Comment: <%= @post.description %><br>
 
-</iframe>
+  <% if @post.image.attached? %>
+    <%= image_tag @post.image  %>
+
+  <% else %>
+<p>  <%= flash[:notice] = "No image yet" %> </p>
+<% end %>
+<%= button_to "edit post", edit_post_path(@post), method: "get" %><br>
+<%= button_to "delete post", post_path(@post), method: "delete",
+      data: { confirm: "Are you sure?" }%>

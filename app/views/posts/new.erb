@@ -1,11 +1,3 @@
-<%= form_for [@post, @places] do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :description %>
-<%= f.text_area :description %>
-<%= f.label :address %>
-<%= f.text_field :address %>
+<h1>Create a post</h1>
 
-<%= f.file_field :image %>
-<%= f.submit %>
-<% end %>
+<%=  render "form" %>

@@ -1,0 +1,34 @@
+<h1>Edit your profile</h1>
+
+<%= form_for @user do |f| %>
+
+<div>
+
+<%= f.label :username %>
+<%= f.text_field :username, autofocus: true %>
+</div>
+<div>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+<div class="">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+<div class="">
+  <%= f.label :confirm_password %>
+  <%= f.password_field :confirm_password %>
+</div>
+<div class="">
+  Add Avatar: <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+
+</div>
+<div class="">
+  <%= f.submit "Update profile!" %><br>
+  <%= button_to "Return to profile", user_path(@user), method: "get" %>
+</div>
+<% end %>
+
+<%= button_to "delete account", user_path(@user), method: "delete",
+      data: { confirm: "Are you sure?" }%>

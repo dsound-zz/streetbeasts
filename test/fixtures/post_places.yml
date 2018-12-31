@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_id: one
+  place_id: one
+
+two:
+  post_id: two
+  place_id: two
