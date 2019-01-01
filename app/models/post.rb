@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   # delegate :filename, to: :image, allow_nil: true
   # delegate_missing_to :image
 
-  validates :image, presence: true
+
   validates :title, presence: true
 
 

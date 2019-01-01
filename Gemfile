@@ -29,6 +29,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
+gem 'sprockets-es6'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'bootstrap', '~> 4.2.1'
+
+gem 'foundation-rails'
+gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

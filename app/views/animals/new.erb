@@ -1,30 +1,3 @@
-<h1>Create animal</h1>
-
-<div>
-<ul>
-<li><%= form_for @animal do |f| %>
-<li><%= f.label :name %>
-<li><%= f.text_field :name %>
-<li><%= f.label :kingdom %>
-<li><%= f.text_field :kingdom %>
-<li><%= f.label :phylum %>
-<li><%= f.text_field :phylum %>
-<li><%= f.label :cls %>
-<li><%= f.text_field :cls %>
-<li><%= f.label :order %>
-<li><%= f.text_field :order %>
-<li><%= f.label :family %>
-<li><%= f.text_field :family %>
-<li><%= f.label :genus %>
-<li><%= f.text_field :genus %>
-<li><%= f.label :species %>
-<li><%= f.text_field :species %>
-<li><%= f.file_field :image %> </li>
-
-<li> <%= f.submit %></li>
-</ul>
 
 
-  <% end %>
-
-</div>
+<%=  render "form" %>

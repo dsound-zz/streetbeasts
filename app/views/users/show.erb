@@ -1,12 +1,8 @@
-
-<h3><%= @user.username %>'s profile</h3><br>
-
+<%= @user.username %>'s profile
 <% if @user.avatar.attached?%>
 <%= image_tag current_user.avatar %>
 <% end %>
-
-<h3>My posts</h3>
-
 <% @user.posts.all do |post| %>
-  <%= post.images.attached %>
-  <% end %>
+  <% post.images.each do |image| %>
+  <%= image %>
+<% end %>

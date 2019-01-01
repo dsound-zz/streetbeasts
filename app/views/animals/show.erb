@@ -1,12 +1,9 @@
 <% if @animal.image.attached? %>
-  <%= image_tag @animal.image %>
-
-
   <% else %>
   <% flash[:notice] = "No image yet" %><br>
   <% end %>
   <p>Name: <%= @animal.name %></p>
-  <p>Kingdom: <%= @animal.kingdom %></p>
+  <p>Kingdom: <%= link_to @animal.kingdom %></p>
   <p>Phylum: <%= @animal.phylum %></p>
   <p>Class: <%= @animal.cls %> </p>
   <p>Order: <%= @animal.order %></p>

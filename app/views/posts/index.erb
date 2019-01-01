@@ -1,10 +1,15 @@
-<h1>User Posts</h1>
-
-<%= button_to "Create post", new_post_path, method: "get"%>
 
 
-<% @posts.each do |post| %>
 
-<p>Post title:  <%= link_to post.title, post_path(post) %> </p>
 
+  <div class="orbit">
+
+  <!-- <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button> -->
+  <!-- <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button> -->
+  <% @posts.each do |post| %>
+
+
+<%= link_to image_tag(post.image), post_path(post),  class: "orbit-slide" %>
+
+</div>
 <% end %>
