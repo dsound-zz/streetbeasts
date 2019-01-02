@@ -3,7 +3,14 @@
 <%= f.text_field :title %><br>
 <%= f.label :description %>
 <%= f.text_area :description %><br>
+<%= f.label :optional %>
+<%= f.collection_select :animal_id, Animal.all, :id, :name, {include_blank: 'Select beast'} %>
+<%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.file_field :image %><br>
+
+  <%#<%= f.hidden_field :user_id, value: @post.current_user.id %>
+
+
 <%= f.submit %>
 <% end %>
-<%= button_to "back to profiles", posts_path, method: "get" %>
+<%= button_to "back to post", posts_path, method: "get" %>

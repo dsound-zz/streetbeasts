@@ -1,9 +1,7 @@
 class PostsController < ApplicationController
-
+  before_action :current_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :like, :update, :destroy]
-  before_action if: ->{ session[:user] } do
-    @user = User.find_by(id: session[:user])
-  end
+
 
   def index
     @posts = Post.all
@@ -11,18 +9,15 @@ class PostsController < ApplicationController
 
 
 
-
   def show
-  
   end
 
 
   def new
-    if current_user
-      @post = Post.new
-    else
-      redirect_to login_path, notice: 'Please login'
-    end
+
+  @post = Post.new
+
+
   end
 
 
@@ -36,16 +31,18 @@ class PostsController < ApplicationController
   def edit
   end
 
+
+
   def like
-
-
     @post.update(likes: @post.likes.to_i + 1)
     render :show
   end
 
 
 
+
   def update
+
     @post.image.purge
     @post.update(post_params)
     @post.image.attach(params[:post][:image])
@@ -53,7 +50,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-
     # @image = ActiveStorage::Blob.find_signed(params[:id])
     @post.image.purge
     @post.delete
@@ -67,9 +63,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :likes)
+    params.require(:post).permit(:title, :description, :likes, :user_id, :animal_id)
   end
-
 
 
 end

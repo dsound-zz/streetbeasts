@@ -1,9 +1,9 @@
 
 
 <%= form_tag '/login' do %>
-<%= text_field_tag :email %>
-<%= password_field_tag :password %>
-<%= submit_tag "Login" %>
+Email <%= text_field_tag :email %>
+Password <%= password_field_tag :password %>
+<%= submit_tag "Login" %><br>
 <% end %>
 Need an account?<br>
 <%= link_to 'Sign up', '/signup' %>

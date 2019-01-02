@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
   end
 
 
@@ -21,13 +20,15 @@ class UsersController < ApplicationController
     @user.email.downcase!
     if @user.save
       flash[:notice] = "Account created successfully!"
-
       redirect_to login_path
     else
-      flash.now.alert = "Oops, couldn't create account! Please check email and password"
+      flash.now.alert = "Oops, couldn't create account! Please check email is valid and password
+      is at least 6 characters"
       render :new
     end
   end
+
+
 
 
   def edit
@@ -36,7 +37,15 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    redirect_to user_path(@user)
+    @user.email.downcase!
+    if @user.valid?
+      flash[:notice] = "Account created successfully!"
+      redirect_to login_path
+    else
+      flash.now.alert = "Oops, couldn't create account! Please check email is valid and password
+      is at least 6 characters"
+      render :new
+    end
   end
 
 
@@ -58,7 +67,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :username, :password, :password_confirmation, :avatar)
   end
-
-
 
 end

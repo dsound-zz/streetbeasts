@@ -1,12 +1,25 @@
 Title: <%= @post.title %><br>
+User: <%= @post.user.username %><br>
+Animal: <%= link_to @post.animal.name, animal_path(@post.animal) %><br>
+<% if @post.likes == nil %>
+<% @post.likes = 0 %>
+<% end  %>
 Comment: <%= @post.description %><br>
 Likes: <%= @post.likes %><br>
-<%= link_to 'like', like_path(@post), method: "patch" %><br>
 <% if @post.image.attached? %>
-  <%= image_tag @post.image  %>
+<%= image_tag @post.image  %><br>
+<% else %>
+<%= flash[:concern] = "No image attached yet" %><br>
 <% end %>
+  <% if current_user.id != @post.user_id %>
+
+  <%= link_to 'like', like_path(@post), action: "like", method: "patch" %><br>
+<% end %>
+
+<% if current_user.id == @post.user_id %>
 <%= link_to "edit post", edit_post_path(@post), method: "get" %><br>
 <%= link_to "delete post", post_path(@post), method: "delete",
 data: { confirm: "Are you sure?" }%><br>
+<% end %>
 <%= render partial: "comments/comments", locals: {commentable: @post} %>
 <%= render partial: "comments/form", locals: {commentable: @post} %>

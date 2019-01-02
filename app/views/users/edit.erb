@@ -10,7 +10,7 @@
   Add Avatar: <%= f.label :avatar %>
   <%= f.file_field :avatar %>
   <%= f.submit "Update profile!" %><br>
-  <%= button_to "Return to profile", user_path(@user), method: "get" %>
+  <%= button_to "Return to posts", posts_path, controller: "posts", action: "index", method: "get" %>
   <% end %>
 <%= button_to "delete account", user_path(@user), method: "delete",
       data: { confirm: "Are you sure?" }%>

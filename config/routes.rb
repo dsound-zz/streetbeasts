@@ -7,14 +7,15 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
-  patch '/posts/:id' => 'posts#like', as: 'like'
 
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :animals
-  resources :posts do
+  resources :posts, only: [:index, :show, :new, :create, :edit, :destroy] do
     resources :comments, module: :posts
   end
 
+  patch '/posts/:id' => 'posts#like', as: 'like'
+  patch '/posts/:id' => 'posts#update'
 
 end
 

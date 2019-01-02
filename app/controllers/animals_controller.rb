@@ -4,11 +4,9 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
-
   end
 
   def show
-
   end
 
   def new
@@ -21,7 +19,6 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -33,8 +30,6 @@ class AnimalsController < ApplicationController
     @animal.delete(animal_params)
     redirect_to animals_path
   end
-
-
 
 
   private
