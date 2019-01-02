@@ -3,6 +3,7 @@
 <%= image_tag current_user.avatar %>
 <% end %>
 <% @user.posts.all do |post| %>
-  <% post.images.each do |image| %>
-  <%= image %>
+    <% post.images.each do |image| %>
+      <%= image %>
+    <% end %>
 <% end %>

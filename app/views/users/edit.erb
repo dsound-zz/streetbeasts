@@ -1,3 +1,15 @@
+<div class="row">
+  <div class="medium-4 columns">
+
+<h3><%= @user.username %>'s profile</h3>
+<% if @user.avatar.attached?%>
+<container>
+<%= image_tag current_user.avatar, class: "thumbnail", width: "600px", height: "350px"%>
+</container>
+<% end %>
+</div>
+  <div class="medium-8 columns">
+
 <%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username, autofocus: true %>
@@ -9,8 +21,12 @@
   <%= f.password_field :confirm_password %>
   Add Avatar: <%= f.label :avatar %>
   <%= f.file_field :avatar %>
-  <%= f.submit "Update profile!" %><br>
+  <%= f.submit "Update profile" %><br>
   <%= button_to "Return to posts", posts_path, controller: "posts", action: "index", method: "get" %>
   <% end %>
 <%= button_to "delete account", user_path(@user), method: "delete",
       data: { confirm: "Are you sure?" }%>
+
+
+  </div>
+</div>

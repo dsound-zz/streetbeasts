@@ -13,38 +13,54 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  
+
 
   <body>
-    <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="menu">
-        <li><%= link_to 'Beasts', animals_path %></li>
-        <li><%= link_to 'Posts', '/posts/' %></li>
-        <li><%= link_to 'Create post', '/posts/new' %></li>
-      </ul>
-    </div>
+  <div data-sticky-container>
+      <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+        <div class="title-bar-title">
+      <div class="title-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+         <li class="is-dropdown-submenu-parent">
+           <%= link_to 'Beasts', animals_path %>
+              <ul class="menu">
+                <% Animal.all.each do |a| %>
+                <li>  <%= link_to a.name, animal_path(a) %></li>
+                <% end %>
+              </ul>
+          </li>
+          <li><%= link_to 'Posts', '/posts/' %></li>
+          <li><%= link_to 'Create post', '/posts/new' %></li>
+        </ul>
+      </div>
+      </div>
 
 
-  <div class="top-bar-right">
+
+
+  <div class="title-bar-right">
     <ul class="menu">
     <% if current_user %>
-  <li><%= link_to current_user.username, edit_user_path(current_user.id) %> </li>
-  <li><%= link_to 'Logout', '/logout', method: 'delete' %></li>
-  <li><% else %>
-  <li><%= link_to 'Login', '/login', method: 'get' %></li>
-  <li><%= link_to 'Signup', '/signup', method: 'get' %></li>
-  <% end %>
-  </ul>
+      <li><%= link_to current_user.username, edit_user_path(current_user.id) %> </li>
+      <li><%= link_to 'Logout', '/logout', method: 'delete' %></li>
+      <li><% else %>
+      <li><%= link_to 'Login', '/login', method: 'get' %></li>
+      <li><%= link_to 'Signup', '/signup', method: 'get' %></li>
+      <% end %>
+    </ul>
   </div>
   </div>
 
-  <div class="callout large primary">
+
+<div class="callout large primary all_bkground">
+
+    <!-- <img src="/animal_manhattan.jpg", alt="Cover_photo">  -->
   <div class="row column text-center">
-  <h1>Street Beasts</h1>
-  <h2 class="subheader"></h2>
+      <h1>Street Beasts</h1>
+      <h2 class="subheader"></h2>
+    </div>
   </div>
-  </div>
+
 
 
 

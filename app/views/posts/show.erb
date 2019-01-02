@@ -1,3 +1,7 @@
+<div class="row medium-8 large-7 columns">
+  <div class="blog-post">
+    <div class="callout">
+
 Title: <%= @post.title %><br>
 User: <%= @post.user.username %><br>
 Animal: <%= link_to @post.animal.name, animal_path(@post.animal) %><br>
@@ -5,15 +9,15 @@ Animal: <%= link_to @post.animal.name, animal_path(@post.animal) %><br>
 <% @post.likes = 0 %>
 <% end  %>
 Comment: <%= @post.description %><br>
-Likes: <%= @post.likes %><br>
 <% if @post.image.attached? %>
 <%= image_tag @post.image  %><br>
 <% else %>
-<%= flash[:concern] = "No image attached yet" %><br>
+<%= flash.now.concern = "No image attached yet" %><br>
 <% end %>
-  <% if current_user.id != @post.user_id %>
 
-  <%= link_to 'like', like_path(@post), action: "like", method: "patch" %><br>
+Likes: <%= @post.likes %><br>
+  <% if current_user.id != @post.user_id %>
+  <%= button_to 'like', like_path(@post), method: "patch" %><br>
 <% end %>
 
 <% if current_user.id == @post.user_id %>
@@ -23,3 +27,6 @@ data: { confirm: "Are you sure?" }%><br>
 <% end %>
 <%= render partial: "comments/comments", locals: {commentable: @post} %>
 <%= render partial: "comments/form", locals: {commentable: @post} %>
+</div>
+</div>
+</div>

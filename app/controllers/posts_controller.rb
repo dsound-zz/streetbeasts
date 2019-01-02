@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
-  before_action :current_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :current_user, only: [ :new, :edit, :create, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :like, :update, :destroy]
 
 
   def index
     @posts = Post.all
+
   end
 
 
@@ -14,10 +15,7 @@ class PostsController < ApplicationController
 
 
   def new
-
   @post = Post.new
-
-
   end
 
 
@@ -39,10 +37,7 @@ class PostsController < ApplicationController
   end
 
 
-
-
   def update
-
     @post.image.purge
     @post.update(post_params)
     @post.image.attach(params[:post][:image])

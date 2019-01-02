@@ -1,7 +1,19 @@
-<% if @animal.image.attached? %>
-  <% else %>
-  <% flash[:notice] = "No image yet" %><br>
-  <% end %>
+<div class="row">
+  <div class="medium-8 columns">
+
+    <% if @animal.image.attached? %>
+    <container>
+      <%= image_tag @animal.image, class: "thumbnail", width: "600px", height: "350px" %>
+    </container>
+    <% else %>
+      <% flash[:notice] = "No image yet" %><br>
+    <% end %>
+
+  </div>
+
+
+  <div class="medium-4 columns">
+
   <p>Name: <%= @animal.name %></p>
   <p>Kingdom: <%= link_to @animal.kingdom %></p>
   <p>Phylum: <%= @animal.phylum %></p>
@@ -10,3 +22,6 @@
   <p>Family: <%= @animal.family %></p>
   <p>Genus: <%= @animal.genus %></p>
   <p>Species <%= @animal.species %></p>
+  
+  </div>
+</div>

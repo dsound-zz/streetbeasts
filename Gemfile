@@ -45,6 +45,9 @@ gem "aws-sdk-s3", require: false
 gem 'rest-client', '~> 1.8'
 gem 'nifty-generators'
 gem 'geokit', '~> 1.11'
+
+gem 'jquery-rails' 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

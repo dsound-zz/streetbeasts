@@ -2,23 +2,25 @@
 
 <div class="row medium-8 large-7 columns">
   <div class="blog-post">
-  <% @posts.each do |post| %>
+    <% @posts.each do |post| %>
 
 
-  <div class="callout">
- <h4>Title: <%= link_to post.title, post_path(post) %>
- <small><%= post.created_at %> </small></h4>
- <% if post.image.attached? %>
- <%= link_to image_tag(post.image), post_path(post) %>
- <% end %>
- <ul class="menu simple">
- <li>User: <%= link_to post.user.username, user_path(post.user) %></li>
- <li>Likes: <%= post.likes %></li>
- <li>Comments: <%= post.comments.count %></li>
- </ul>
-</div>
- <% end %>
+      <div class="callout">
+        <h4>Title: <%= link_to post.title, post_path(post) %>
+          <small><%= post.created_at %> </small></h4>
+          <% if post.image.attached? %>
+          <%= link_to image_tag(post.image), post_path(post) %>
+          <ul class="menu simple">
+            <li>User: <%= link_to post.user.username, user_path(post.user) %></li>
+            <li>Likes: <%= post.likes %></li>
+            <li>Comments: <%= post.comments.count %></li>
+
+          </ul>
+          <% end %>
+      </div>
+      <% end %>
 
 
-</div>
-</div>
+
+    </div>
+  </div>

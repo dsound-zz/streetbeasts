@@ -15,3 +15,35 @@
  *= require_self
  *= require foundation_and_overrides
  */
+
+.callout {
+  z-index: -1;
+}
+
+.callout.large {
+    padding-top: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 15rem;
+    padding-left: 3rem;
+}
+
+.img {
+  width: 100%;
+}
+
+.all_bkground {
+  background-image: url("/animal_manhattan.jpg");
+  background-size: cover;
+
+}
+
+.title_bar_right {
+
+}
+
+p {
+   margin-bottom: 1rem;
+   font-size: inherit;
+   line-height: 1.6;
+   text-rendering: optimizeLegibility;
+}
