@@ -3,7 +3,9 @@ class AnimalsController < ApplicationController
 
 
   def index
+    byebug
     @animals = Animal.all
+    
   end
 
   def show

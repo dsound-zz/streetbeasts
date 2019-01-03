@@ -2,20 +2,20 @@ class PostsController < ApplicationController
   before_action :current_user, only: [ :new, :edit, :create, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :like, :update, :destroy]
 
-
   def index
     @posts = Post.all
-
   end
-
-
 
   def show
   end
 
 
   def new
-  @post = Post.new
+    if current_user == nil
+      authorize
+    else
+    @post = Post.new
+    end
   end
 
 
@@ -27,13 +27,20 @@ class PostsController < ApplicationController
 
 
   def edit
+    if current_user == nil
+      authorize
+    end
   end
 
 
 
   def like
+    if current_user == nil
+      authorize
+    else
     @post.update(likes: @post.likes.to_i + 1)
     render :show
+    end
   end
 
 
@@ -45,10 +52,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    # @image = ActiveStorage::Blob.find_signed(params[:id])
+    if current_user == nil
+      authorize
+    else
     @post.image.purge
     @post.delete
     redirect_to posts_path
+    end
   end
 
   private

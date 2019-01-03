@@ -1,3 +1,4 @@
-<% @animals.each do |animal| %>
+
+<% @animals.select do |animal| %>
 <%= link_to animal.name, animal_path(animal) %><br>
 <% end %>

@@ -12,16 +12,12 @@
   </div>
 
 
-  <div class="medium-4 columns">
+  <div class="medium-4 columns animal-text">
 
   <p>Name: <%= @animal.name %></p>
-  <p>Kingdom: <%= link_to @animal.kingdom %></p>
-  <p>Phylum: <%= @animal.phylum %></p>
-  <p>Class: <%= @animal.cls %> </p>
-  <p>Order: <%= @animal.order %></p>
-  <p>Family: <%= @animal.family %></p>
-  <p>Genus: <%= @animal.genus %></p>
-  <p>Species <%= @animal.species %></p>
-  
+  <p>Kingdom: <%= link_to @animal.kingdom, animals_path(params2: "Kingdom") %></p>
+
+
+
   </div>
 </div>

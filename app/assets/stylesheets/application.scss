@@ -16,25 +16,37 @@
  *= require foundation_and_overrides
  */
 
-.callout {
-  z-index: -1;
-}
+ body {
+   background: #ECECEC;
+   background: -moz-linear-gradient(left, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
+   background: -webkit-linear-gradient(left, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
+   background: linear-gradient(to right, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
+ }
+
+ .dropdown {
+   z-index: +1
+ }
+
+// .callout {
+//   z-index: -1;
+// }
 
 .callout.large {
-    padding-top: 3rem;
-    padding-right: 3rem;
-    padding-bottom: 20rem;
-    padding-left: 3rem;
+  padding-top: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 20rem;
+  padding-left: 3rem;
 }
 
 .callout.primary {
-    background-color: #d7ecfa;
-    color: #0a0a0a;
+  background-color: #d7ecfa;
+  color: #0a0a0a;
 
 }
 
 .img {
   width: 100%;
+
 }
 
 .all_bkground {
@@ -44,8 +56,8 @@
 }
 
 .row.column {
-  margin-top: -2.2em;
-  text-shadow: 6px 2px 6px rgba(164,135,17,0.92);
+margin-top: -2.2em;
+text-shadow: 6px 2px 6px rgba(164,135,17,0.92);
 font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 font-size: 28px;
 letter-spacing: 22.6px;
@@ -59,6 +71,23 @@ text-transform: none;
 
 }
 
+.animal_cards {
+  font-family: 'Open sans', sans-serif;
+ font-size: 0.9rem;
+ font-weight: 600;
+ line-height: 1.45rem;
+ margin-top: 1rem;
+ margin-bottom: 0;
+}
+
+.animal_card_thumbnail {
+  display: block;
+  position: relative;
+}
+
+.animal-text {
+
+}
 
 p {
    margin-bottom: 1rem;

@@ -2,31 +2,32 @@
   <div class="blog-post">
     <div class="callout">
 
-Title: <%= @post.title %><br>
-User: <%= @post.user.username %><br>
-Animal: <%= link_to @post.animal.name, animal_path(@post.animal) %><br>
-<% if @post.likes == nil %>
-<% @post.likes = 0 %>
-<% end  %>
-Comment: <%= @post.description %><br>
-<% if @post.image.attached? %>
-<%= image_tag @post.image  %><br>
-<% else %>
-<%= flash.now.concern = "No image attached yet" %><br>
-<% end %>
+      Title: <%= @post.title %><br>
+      User: <%= @post.user.username %><br>
+      Animal: <%= link_to @post.animal.name, animal_path(@post.animal) %><br>
+      <% if @post.likes == nil %>
+        <% @post.likes = 0 %>
+      <% end  %>
+      Comment: <%= @post.description %><br>
+      <% if @post.image.attached? %>
+        <%= image_tag @post.image  %><br>
+      <% else %>
+        <%= flash.now.concern = "No image attached yet" %><br>
+      <% end %>
 
-Likes: <%= @post.likes %><br>
-  <% if current_user.id != @post.user_id %>
-  <%= button_to 'like', like_path(@post), method: "patch" %><br>
-<% end %>
+      Likes: <%= @post.likes %><br>
 
-<% if current_user.id == @post.user_id %>
-<%= link_to "edit post", edit_post_path(@post), method: "get" %><br>
-<%= link_to "delete post", post_path(@post), method: "delete",
-data: { confirm: "Are you sure?" }%><br>
-<% end %>
-<%= render partial: "comments/comments", locals: {commentable: @post} %>
-<%= render partial: "comments/form", locals: {commentable: @post} %>
-</div>
-</div>
-</div>
+        <%  if current_user == nil || current_user.id != @post.user_id %>
+        <%= button_to 'like', like_path(@post), method: "patch" %><br>
+      <% end %>
+
+      <% if !current_user || current_user.id == @post.user_id %>
+        <%= link_to "edit post", edit_post_path(@post), method: "get" %><br>
+        <%= link_to "delete post", post_path(@post), method: "delete",
+          data: { confirm: "Are you sure?" }%><br>
+      <% end %>
+      <%= render partial: "comments/comments", locals: {commentable: @post} %>
+      <%= render partial: "comments/form", locals: {commentable: @post} %>
+      </div>
+    </div>
+  </div>

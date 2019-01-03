@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-
+  has_many :comments, as: :commentable
   has_many :posts
   has_many :animals, through: :posts
   has_one :location
