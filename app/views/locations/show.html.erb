@@ -1,0 +1,4 @@
+<!-- <div id="map-canvas" style="width: 400px; height: 400px"> -->
+<div class="map">
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:small%7Ccolor:red%7C#{@location.latitude},#{@location.longitude}&key=#{ENV[GOOGLE]}", alt: "Map" %>
+</div>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
 
-
+  resources :locations 
   resources :users
   resources :animals
   resources :posts, only: [:index, :show, :new, :edit, :create, :destroy] do

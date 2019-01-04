@@ -15,6 +15,19 @@
         <%= flash.now.concern = "No image attached yet" %><br>
       <% end %>
 
+      <!-- <div id="map-canvas" style="width: 400px; height: 400px"> -->
+      <div class="map">
+        <div class="callout">
+
+
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:small%7Ccolor:red%7C#{@post.location.latitude},#{@post.location.longitude}&key=AIzaSyAmJCgjPpyUqdJqrVLPbpGyLq-FAaPCWq0", alt: "Map" %>
+      </div>
+    </div>
+
+
+
+
+
       Likes: <%= @post.likes %><br>
 
         <%  if current_user == nil || current_user.id != @post.user_id %>

@@ -10,8 +10,10 @@
         <%= f.text_area :description %><br>
         <%= f.label :optional %>
         <%= f.collection_select :animal_id, Animal.all, :id, :name, {include_blank: 'Select beast'} %>
-        <%= f.hidden_field :user_id, value: current_user.id if current_user %>
-
+        <% f.text_field :user_id, hidden: true , value: session[:user_id] %>
+        <%= f.collection_select :location_id, Location.all, :id, :address, {include_blank: 'Select location'} %>
+        <%# <%= f.label :new_location, "Or type in a new location" %>
+        <%# f.text_area :new_location %> %>
         <%= f.file_field :image %><br>
         <div class="button-group">
           <%= f.submit class: "secondary button" %>

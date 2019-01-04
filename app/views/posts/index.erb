@@ -10,13 +10,13 @@
           <small><%= post.created_at %> </small></h4>
           <% if post.image.attached? %>
           <%= link_to image_tag(post.image), post_path(post) %>
+          <% end %>
           <ul class="menu simple">
             <li>User: <%= link_to post.user.username, user_path(post.user) %></li>
             <li>Likes: <%= post.likes %></li>
             <li>Comments: <%= post.comments.count %></li>
 
           </ul>
-          <% end %>
       </div>
       <% end %>
 

@@ -17,10 +17,21 @@ class PostsController < ApplicationController
 
 
   def create
-
-    @post = Post.create(post_params)
-    @post.image.attach(params[:post][:image])
-    redirect_to post_path(@post)
+    byebug
+    if post_params[:new_location]
+       new_params = post_params
+       new_params[:location_id] = Location.create(address: post_params[:new_location]).id
+       new_params.delete(:new_location)
+       @post = Post.create(new_params)
+       @post.image.attach(params[:post][:image])
+       redirect_to post_path(@post)
+     else
+       new_params = post_params
+       new_params.delete(:new_location)
+       @post = Post.create(new_params)
+       @post.image.attach(params[:post][:image])
+       redirect_to post_path(@post)
+    end
   end
 
 
@@ -66,7 +77,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :likes, :user_id, :animal_id, :image)
+    params.require(:post).permit(:title, :description, :likes, :user_id, :animal_id, :image, :location_id, :new_location)
   end
 
 
