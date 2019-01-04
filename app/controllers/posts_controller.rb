@@ -12,11 +12,7 @@ class PostsController < ApplicationController
 
 
   def new
-    if current_user == nil
-      authorize
-    else
     @post = Post.new
-    end
   end
 
 
@@ -30,7 +26,7 @@ class PostsController < ApplicationController
 
   def edit
     if current_user == nil
-      authorize
+      authorized
     end
   end
 
@@ -38,7 +34,7 @@ class PostsController < ApplicationController
 
   def like
     if current_user == nil
-      authorize
+      authorized
     else
     @post.update(likes: @post.likes.to_i + 1)
     render :show
@@ -55,7 +51,7 @@ class PostsController < ApplicationController
 
   def destroy
     if current_user == nil
-      authorize
+      authorized
     else
     @post.image.purge
     @post.delete
@@ -70,7 +66,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :likes, :user_id, :animal_id)
+    params.require(:post).permit(:title, :description, :likes, :user_id, :animal_id, :image)
   end
 
 

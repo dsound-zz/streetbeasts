@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+
+  belongs_to :location
   has_many :comments, as: :commentable
 
   belongs_to :animal, required: false

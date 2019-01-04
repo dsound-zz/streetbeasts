@@ -6,8 +6,8 @@
 
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Animal.create(name: "Coyote", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Carnivora", family: "Canidae", genus: "Canis", species: "C. latrans")
-Animal.create(name: "Red Tailed Hawk", kingdom: "Animalia", phylum: "Chordata", cls: "Aves", order: "	Accipitriformes", family: "Accipitridae", genus: "Buteo", species: "B. jamaicensis")
-Animal.create(name: "Stripped Skunk", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Carnivora", family: "Mephitidae", genus: "Mephitis", species: "M. mephitis")
-Animal.create(name: "Opossum", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Didelphimorphia", family: "Didelphidae", genus: "Didelphis", species: "D. Virginiana")
-Animal.create(name: "Red Tailed Fox", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Carnivora", family: "Canidae", genus: "Vulpes", species: "V. Vulpes")
+Animal.create(name: "Coyote", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Carnivora", family: "Canidae", genus: "Canis", species: "C. latrans", info: "")
+Animal.create(name: "Red Tailed Hawk", kingdom: "Animalia", phylum: "Chordata", cls: "Aves", order: "	Accipitriformes", family: "Accipitridae", genus: "Buteo", species: "B. jamaicensis", info: "")
+Animal.create(name: "Stripped Skunk", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Carnivora", family: "Mephitidae", genus: "Mephitis", species: "M. mephitis", info:"")
+Animal.create(name: "Opossum", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Didelphimorphia", family: "Didelphidae", genus: "Didelphis", species: "D. Virginiana", info: "")
+Animal.create(name: "Red Tailed Fox", kingdom: "Animalia", phylum: "Chordata", cls: "Mammalia", order: "Carnivora", family: "Canidae", genus: "Vulpes", species: "V. Vulpes", info: "")

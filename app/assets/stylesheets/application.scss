@@ -17,10 +17,11 @@
  */
 
  body {
-   background: #ECECEC;
-   background: -moz-linear-gradient(left, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
-   background: -webkit-linear-gradient(left, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
-   background: linear-gradient(to right, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
+   // background: #ECECEC;
+
+   // background: -moz-linear-gradient(left, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
+   // background: -webkit-linear-gradient(left, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
+   // background: linear-gradient(to right, #ECECEC 0%, #D4DBD4 76%, #DBDBCD 100%);
  }
 
  .dropdown {
@@ -75,7 +76,8 @@ text-transform: none;
 }
 
 .animal_cards {
-  font-family: 'Open sans', sans-serif;cee
+  font-family: 'Open sans', sans-serif;
+}
 
 .animal-text {
   text-align: center;

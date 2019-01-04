@@ -11,10 +11,10 @@
         <%= f.label :optional %>
         <%= f.collection_select :animal_id, Animal.all, :id, :name, {include_blank: 'Select beast'} %>
         <%= f.hidden_field :user_id, value: current_user.id if current_user %>
-      
+
         <%= f.file_field :image %><br>
         <div class="button-group">
-          <%= f.submit  %>
+          <%= f.submit class: "secondary button" %>
           <% end %>
           <%= button_to "back to posts", posts_path, method: "get" , class: "secondary button"%>
         </div>

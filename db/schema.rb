@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_31_191958) do
+ActiveRecord::Schema.define(version: 2019_01_04_171243) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2018_12_31_191958) do
     t.string "family"
     t.string "genus"
     t.string "species"
+    t.text "info"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -49,6 +50,14 @@ ActiveRecord::Schema.define(version: 2018_12_31_191958) do
     t.integer "commentable_id"
     t.integer "user_id"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longiude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_12_31_191958) do
     t.integer "likes"
     t.integer "user_id"
     t.integer "animal_id"
+    t.integer "location_id"
   end
 
   create_table "users", force: :cascade do |t|

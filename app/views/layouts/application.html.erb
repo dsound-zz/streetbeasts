@@ -15,13 +15,13 @@
   </head>
 
 
-  <body>
+<body>
   <div data-sticky-container>
-        <div class="title-bar-title">
-      <div class="title-bar-left">
+    <div class="top-bar">
+      <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
          <li class="is-dropdown-submenu-parent">
-           <%= link_to 'Beasts', animals_path %>
+         <%= link_to 'Beasts', animals_path %>
               <ul class="menu">
                 <% Animal.all.each do |a| %>
                 <li>  <%= link_to a.name, animal_path(a) %></li>
@@ -32,23 +32,40 @@
           <li><%= link_to 'Create post', '/posts/new' %></li>
         </ul>
       </div>
+
+
+      <div class="top-bar-right">
+        <ul class="menu">
+        <li> <%= form_tag search_path, method: :get do %></li>
+        <li> Search <%= text_field_tag :q, params[:q]%></li>
+        <div class="button-group">
+
+        <li> <%= submit_tag 'Search', class: "secondary button" %></li>
       </div>
-
-
-
-
-  <div class="title-bar-right">
-    <ul class="menu">
-    <% if current_user %>
-      <li><%= link_to current_user.username, edit_user_path(current_user.id) %> </li>
-      <li><%= link_to 'Logout', '/logout', method: 'delete' %></li>
-      <li><% else %>
-      <li><%= link_to 'Login', '/login', method: 'get' %></li>
-      <li><%= link_to 'Signup', '/signup', method: 'get' %></li>
-      <% end %>
-    </ul>
+          <% end %>
+        <% if current_user %>
+        <li><%= link_to current_user.username, edit_user_path(current_user.id) %> </li>
+        <li><%= link_to 'Logout', '/logout', method: 'delete' %></li>
+        <li><% else %>
+          <li><%= link_to 'Login', '/login', method: 'get' %></li>
+          <li><%= link_to 'Signup', '/signup', method: 'get' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="callout large primary all_bkground">
