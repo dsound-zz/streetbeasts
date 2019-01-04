@@ -20,7 +20,7 @@
         <div class="callout">
 
 
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:small%7Ccolor:red%7C#{@post.location.latitude},#{@post.location.longitude}&key=AIzaSyAmJCgjPpyUqdJqrVLPbpGyLq-FAaPCWq0", alt: "Map" %>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:small%7Ccolor:red%7C#{@post.location.latitude},#{@post.location.longitude}&key=ENV['API_KEY'], alt: "Map" %>
       </div>
     </div>
 
