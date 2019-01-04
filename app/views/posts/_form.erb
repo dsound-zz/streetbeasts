@@ -1,4 +1,4 @@
-<form>
+
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
@@ -11,14 +11,13 @@
         <%= f.label :optional %>
         <%= f.collection_select :animal_id, Animal.all, :id, :name, {include_blank: 'Select beast'} %>
         <%= f.hidden_field :user_id, value: current_user.id if current_user %>
+      
         <%= f.file_field :image %><br>
-
         <div class="button-group">
-        <%= f.submit class: "warning button" %>
-
-        <% end %>
-        <%= button_to "back to post", posts_path, method: "get" , class: "button"%>
+          <%= f.submit  %>
+          <% end %>
+          <%= button_to "back to posts", posts_path, method: "get" , class: "secondary button"%>
         </div>
       </div>
     </div>
-  </form>    
+  </div>

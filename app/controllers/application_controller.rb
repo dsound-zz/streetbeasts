@@ -1,6 +1,6 @@
-require "geocoder"
 
 class ApplicationController < ActionController::Base
+  before_action :authorized
   helper_method :current_user
 
   def current_user
@@ -8,11 +8,14 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id])
     else
       @current_user = nil
-      
     end
   end
 
-  def authorize
+  def logged_in?
+    !!current_user
+  end
+
+  def authorized
    redirect_to '/login' unless current_user
   end
 

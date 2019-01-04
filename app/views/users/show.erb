@@ -1,9 +1,19 @@
-<%= @user.username %>'s profile
+<div class="row">
+  <div class="medium-4 columns">
+
+<h3><%= @user.username %>'s profile</h3>
+
 <% if @user.avatar.attached?%>
-<%= image_tag current_user.avatar %>
+<%= image_tag @user.avatar, class: "thumbnail", width: "150px", height: "150px" %><br>
 <% end %>
-<% @user.posts.all do |post| %>
-    <% post.images.each do |image| %>
-      <%= image %>
+Posts <%= @user.posts.count %>
+
+</div>
+
+  <div class="medium-8 columns">
+
+    <% @user.posts.each do |post| %>
+    <%=link_to image_tag post.image, class: "thumbnail", width: "300px", height: "400px" %>
     <% end %>
-<% end %>
+  </div>
+</div>

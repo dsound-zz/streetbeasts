@@ -3,7 +3,7 @@
     <div class="callout">
 
       Title: <%= @post.title %><br>
-      User: <%= @post.user.username %><br>
+      User: <%= link_to @post.user.username, user_path(@post.user) %><br>
       Animal: <%= link_to @post.animal.name, animal_path(@post.animal) %><br>
       <% if @post.likes == nil %>
         <% @post.likes = 0 %>

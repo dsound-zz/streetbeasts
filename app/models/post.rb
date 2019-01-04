@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_one_attached :image
 
   validates :title, presence: true
+  validates :description, length: { minimum: 20,  maximum: 200 }
 
 
 

@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="medium-8 columns">
+  <div class="medium-5 columns">
 
     <% if @animal.image.attached? %>
     <container>
-      <%= image_tag @animal.image, class: "thumbnail", width: "600px", height: "350px" %>
+      <%= image_tag @animal.image, class: "thumbnail", width: "600px", height: "400px" %>
     </container>
     <% else %>
       <% flash[:notice] = "No image yet" %><br>
@@ -12,12 +12,23 @@
   </div>
 
 
-  <div class="medium-4 columns animal-text">
-
-  <p>Name: <%= @animal.name %></p>
-  <p>Kingdom: <%= link_to @animal.kingdom, animals_path(params2: "Kingdom") %></p>
+  <div class="medium-7 columns animal-text">
+    <div class=>
 
 
+    <h5>Coyotes are returning to many U.S. cities and NYC is no exception.
+      Coyotes are nocturnal creatures and can be found in the cities parks (not Central Park yet!)
+      coming in from Westchester Co. and Long Island.</h5>
+    </div>
+
+  <!-- <p>Name: <%= @animal.name %></p>
+  <p>Kingdom: <%= link_to @animal.kingdom, animals_path(@animal.kingdom) %></p>
+  <p>Phylum: <%= link_to @animal.phylum, animals_path(@animal.phylum) %></p>
+  <p>Class: <%= link_to @animal.cls, animals_path(@animal.cls) %> </p>
+  <p>Order: <%= link_to @animal.order, animals_path(@animal.order) %></p>
+  <p>Family: <%= link_to @animal.family, animals_path(@animal.family) %></p>
+  <p>Genus: <%= link_to @animal.genus, animals_path(@animal.genus) %></p>
+  <p>Species <%= link_to @animal.species, animals_path(@animal.species) %></p> -->
 
   </div>
 </div>

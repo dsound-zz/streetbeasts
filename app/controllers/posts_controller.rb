@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :current_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :current_user, only: [:edit, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :like, :update, :destroy]
+  skip_before_action :authorized, only: [:index, :new, :create]
 
   def index
     @posts = Post.all
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
 
 
   def create
+
     @post = Post.create(post_params)
     @post.image.attach(params[:post][:image])
     redirect_to post_path(@post)

@@ -1,12 +1,12 @@
 class AnimalsController < ApplicationController
   before_action :find_animal, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authorized, only: [:index, :show]
 
   def index
     byebug
     @animals = Animal.all
-    
   end
+
 
   def show
   end

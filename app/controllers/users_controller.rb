@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authorized, only: [:index, :new, :create]
 
   def index
     @users = User.all
@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
 
 
-
   def edit
   end
 
@@ -49,14 +48,12 @@ class UsersController < ApplicationController
   end
 
 
-
   def destroy
     @user.delete
     reset_session
     @current_user = nil
     redirect_to posts_path
   end
-
 
   private
 
@@ -65,7 +62,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :username, :password, :password_confirmation, :avatar)
+    params.require(:user).permit(:username, :email,  :password, :password_confirmation, :avatar)
   end
 
 end

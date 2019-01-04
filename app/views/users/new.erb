@@ -1,11 +1,12 @@
 
-<form>
+
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
+
         <h5>Sign up!</h5>
 
-      <%= form_for :user, url: '/users' do |f| %>
+      <%= form_for @user do |f| %>
       <%= f.label :username %>
       <%= f.text_field :username, autofocus: true, placeholder: "username", required: "required" %>
       <%= f.label :email %>
@@ -14,12 +15,13 @@
       <%= f.password_field :password %>
       <%= f.label :confirm_password %>
       <%= f.password_field :confirm_password %>
-        <div class="button-group">
-
-        <%= f.submit "Submit", class: "secondary button" %><br><br>
-        </div>
+      <div class="button-group">
+        <%= f.submit "Submit", class: "secondary button"%><br><br>
+      </div>
       <% end %>
     </div>
+
+
     <div class="medium-6 cell">
     <h5>Already have an account?</h5><br>
       <%= form_tag '/login' do %>
@@ -32,4 +34,3 @@
     </div>
   </div>
 </div>
-</form>

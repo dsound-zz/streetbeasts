@@ -33,9 +33,10 @@
 
 .callout.large {
   padding-top: 3rem;
-  padding-right: 3rem;
-  padding-bottom: 20rem;
-  padding-left: 3rem;
+  padding-right: 10rem;
+  padding-bottom: 17rem;
+  padding-left: 10rem;
+
 }
 
 .callout.primary {
@@ -50,8 +51,10 @@
 }
 
 .all_bkground {
+  // background-repeat: no-repeat, repeat;
   background-image: url("/animal_manhattan.jpg");
   background-size: cover;
+  background-blend-mode: luminosity;
 
 }
 
@@ -72,26 +75,8 @@ text-transform: none;
 }
 
 .animal_cards {
-  font-family: 'Open sans', sans-serif;
- font-size: 0.9rem;
- font-weight: 600;
- line-height: 1.45rem;
- margin-top: 1rem;
- margin-bottom: 0;
-}
-
-.animal_card_thumbnail {
-  display: block;
-  position: relative;
-}
+  font-family: 'Open sans', sans-serif;cee
 
 .animal-text {
-
-}
-
-p {
-   margin-bottom: 1rem;
-   font-size: inherit;
-   line-height: 1.6;
-   text-rendering: optimizeLegibility;
+  text-align: center;
 }
